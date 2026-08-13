@@ -7,5 +7,8 @@ class SoftwareRequirement:
     title: str
     text: str
     version: int
-    
+    def __post_init__(self) -> None:
+        if self.version <= 0:
+            raise ValueError("version must be positive")
+        
 
