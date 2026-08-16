@@ -11,6 +11,11 @@ class SoftwareRequirement:
     def __post_init__(self) -> None:
         if not self.requirement_id.strip():
             raise ValueError("requirement_id must not be empty")
+        if not self.title.strip():
+            raise ValueError("title must not be empty")
+
+        if not self.text.strip():
+            raise ValueError("text must not be empty")
 
         if self.version <= 0:
             raise ValueError("version must be positive")
